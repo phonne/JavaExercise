@@ -7,6 +7,7 @@ public class Week1Exercise12 {
 			System.out.println("in loop " + i);
 			if (i == 2){
 				continue;
+				
 			}
 			System.out.println("survived first gurad");
 			if (i == 4){
