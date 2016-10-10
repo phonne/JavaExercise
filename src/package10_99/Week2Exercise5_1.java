@@ -6,7 +6,7 @@ public class Week2Exercise5_1 {
 
 	static int count = 2;
 	static String[] alphabet = { "a", "b", "c", "d", "e", "f", "g", "h" };
-	static String[] numberindex = { "8", "7", "6", "5", "4", "3", "2", "1" };
+	static String[] number = { "8", "7", "6", "5", "4", "3", "2", "1" };
 	static List<Chessmen> black = Arrays.asList(Chessmen.BLACK_KING, Chessmen.BLACK_QUEEN, Chessmen.BLACK_ROOK,
 			Chessmen.BLACK_BISHOP, Chessmen.BLACK_KNIGHT, Chessmen.BLACK_PAWN);
 	static List<Chessmen> white = Arrays.asList(Chessmen.WHITE_KING, Chessmen.WHITE_QUEEN, Chessmen.WHITE_ROOK,
@@ -54,6 +54,7 @@ public class Week2Exercise5_1 {
 				}
 			}
 		} // end for loop assigning chess pieces to chess board
+		
 	} // end assignChess
 	/*
 	 * 
@@ -89,7 +90,7 @@ public class Week2Exercise5_1 {
 		System.out.println();
 		for (int i = 0; i < 8; i++) {
 			System.out.println();
-			System.out.print(numberindex[i] + "." + "\t");
+			System.out.print(number[i] + "." + "\t");
 
 			for (int j = 0; j < 8; j++) {
 				switch (chessboard[i][j]) {
@@ -187,10 +188,11 @@ public class Week2Exercise5_1 {
 
 		if (isEmpty(chessboard, atStart, fromY, fromX, toY, toX)) {
 			if (isDifferent(chessboard, fromY, fromX, toY, toX)) {
-				if (rightTurn(chessboard, fromY, fromX, toY, toX, null)) {
-					return true;
-				}
-
+				//if (rightTurn(chessboard, fromY, fromX, toY, toX, playerColour(2))) {
+				//	System.out.println("rightturn test");
+				//	return true;
+				//}
+				//System.out.println("diff test");
 				return true;
 			} else {
 				System.err.println("Error Message");
@@ -200,17 +202,17 @@ public class Week2Exercise5_1 {
 
 	} // end boolean isValid
 
-	public static boolean playerColour(int count) {
+	/*public static String playerColour(int count) {
 		String player = null;
 		if (count % 2 == 1) {
 			player = "Black";
-			return true;
+			
 		}
-		if (count % 2 == 0) {
+		else if (count % 2 == 0) {
 			player = "White";
-			return true;
+		
 		}
-		return false;
+		return player;
 	}
 
 	public static boolean rightTurn(Chessmen[][] chessboard, int fromY, int fromX, int toY, int toX, String player) {
@@ -226,15 +228,16 @@ public class Week2Exercise5_1 {
 			return false;
 		}
 	}
-
+*/
 	public static boolean isEmpty(Chessmen[][] chessboard, Chessmen atStart, int fromY, int fromX, int toY, int toX) {
 		if (atStart != Chessmen.EMPTY) {
 			return true;
 		} else {
 			System.out.println("Cannot start from empty.");
+			return false;
 		}
 
-		return false;
+		
 	}
 
 	public static boolean isDifferent(Chessmen[][] chessboard, int fromY, int fromX, int toY, int toX) {
@@ -270,9 +273,10 @@ public class Week2Exercise5_1 {
 		if (isValid(chessboard, atStart, fromY, fromX, toY, toX) == true) {
 			chessboard[fromX][fromY] = Chessmen.EMPTY;
 			chessboard[toX][toY] = atStart;
-
+			System.out.println("count1: " + count);
 			return count++;
 		} else {
+			System.out.println("count0: " + count);
 			return count;
 		}
 	} // end move
@@ -292,15 +296,17 @@ public class Week2Exercise5_1 {
 					"Which chess piece to where?" + "\n" + "Please Enter value of column and row (as x0 to x0)");
 			System.out.println("Player 1: Type in moves.");
 			String input = consolo.nextLine();
+			
+			
 			int newCount = move(chessboard, input, count);
 			printBoard(chessboard);
-			System.out.println(count);
+			//System.out.println(count);
 
 			System.out.println("Next player's turn.");
 			input = consolo.nextLine();
 			newCount = move(chessboard, input, count);
 			printBoard(chessboard);
-			System.out.println(count);
+			//System.out.println(count);
 
 			System.out.println("Exit or keep playing?");
 			input = consolo.nextLine();
