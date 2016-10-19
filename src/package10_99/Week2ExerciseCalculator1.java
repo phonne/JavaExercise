@@ -54,4 +54,34 @@ public class Week2ExerciseCalculator1 {
 			}
 	}
 
+	public static double add(double a, double b) {
+		double temp = a + b;
+		return temp;
+	}
+
+	public static double subtract(double a, double b) {
+		double temp = a - b;
+		return temp;
+	}
+
+	public static double multiply(double a, double b) {
+		double temp = a * b;
+		return temp;
+	}
+
+	public static double divide(double a, double b) {
+		double temp = a / b;
+		return temp;
+	}
+
+	public static long factorial(int a) {
+		if (a <= 0 || a == 1) {
+			return (1);
+		} else {
+			long temp = factorial(a - 1) * a;
+			return temp;
+		}
+	}
+	
+	
 }

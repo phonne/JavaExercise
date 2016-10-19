@@ -12,12 +12,12 @@ public class Exercise1 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner consolo = new Scanner(System.in);
-		System.out.println("Please input the number");
+		System.out.println("Input the number");
 		int Even = consolo.nextInt();
 		if (isEven(Even)) {
 			System.out.println("even");
 		} else {
-			System.out.println("not even");
+			System.out.println("odd");
 		}
 	}
 
