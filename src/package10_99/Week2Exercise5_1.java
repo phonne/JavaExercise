@@ -206,22 +206,31 @@ public class Week2Exercise5_1 {
 
 	} // end boolean isValid
 
-	/*
-	 * public static String playerColour(int count) { String player = null; if
-	 * (count % 2 == 1) { return player = "Black";
-	 * 
-	 * } else if (count % 2 == 0) { return player = "White";
-	 * 
-	 * } return player = null; }
-	 * 
-	 * public static boolean rightTurn(Chessmen[][] chessboard, int fromY, int
-	 * fromX, int toY, int toX, String player) { if (player == "White" &&
-	 * white.contains(chessboard[fromX][fromY])) { System.out.println(player);
-	 * return true; } if (player == "black" &&
-	 * blackp.contains(chessboard[fromX][fromY])) { System.out.println(player);
-	 * return true; } else {
-	 * System.out.println("You cannot use other's pieces."); return false; } }
+	
+	/* public static String playerColour(int count) { String player = null; if
+	  (count % 2 == 1) { return player = "Black";
+	  
+	 } else if (count % 2 == 0) { return player = "White";
+	  
+	  } return player = null; }
+	  
+	  public static boolean rightTurn(Chessmen[][] chessboard, int fromY, int
+	  fromX, int toY, int toX, String player) { if (player == "White" &&
+	  white.contains(chessboard[fromX][fromY])) { System.out.println(player);
+	  return true; } if (player == "black" &&
+	  blackp.contains(chessboard[fromX][fromY])) { System.out.println(player);
+	  return true; } else {
+	  System.out.println("You cannot use other's pieces."); return false; } }
 	 */
+	
+	public static boolean rightturn(Chessmen[][] chessboard, int fromY, int fromX, int toY, int toX){
+		if (chessboard[fromX][fromY] == Chessmen.BLACK_KING) {
+			System.err.println("It's not your turn");
+			return false;
+		}
+		return true;
+	}
+	
 	public static boolean movecheck(Chessmen[][] chessboard, int fromY, int fromX, int toY, int toX) {
 
 		// For The Black King.
@@ -235,7 +244,7 @@ public class Week2Exercise5_1 {
 				return false;
 			}
 		}
-
+		
 		// This "else if" is for The White King.
 		else if (chessboard[toX][fromY] == Chessmen.WHITE_KING) {
 			if ((toX <= fromX + 1 && toX >= Math.abs(fromX - 1)) && (toY <= fromY + 1 && toY >= Math.abs(fromY - 1))) {
@@ -244,6 +253,7 @@ public class Week2Exercise5_1 {
 			}
 
 			else {
+				System.out.println("Cannot move like this!");
 				return false;
 			}
 		}
@@ -266,6 +276,7 @@ public class Week2Exercise5_1 {
 			if ((newRow == 2 && newColumn == 1) || (newRow == 1 && newColumn == 2)) {
 				return true;
 			} else {
+				System.out.println("Cannot move like this!");
 				return false;
 			}
 		}
@@ -279,6 +290,7 @@ public class Week2Exercise5_1 {
 			// This checks whether there are no pieces on the way to the new
 			// position.
 			else {
+				System.out.println("Cannot move like this!");
 				return false;
 			}
 
@@ -293,6 +305,7 @@ public class Week2Exercise5_1 {
 			// This checks whether there are no pieces on the way to the new
 			// position.
 			else {
+				System.out.println("Cannot move like this!");
 				return false;
 			}
 
@@ -304,15 +317,16 @@ public class Week2Exercise5_1 {
 			int newColumn = Math.abs(toY - fromY);
 
 			if (newRow != newColumn) {
+				
 				return false;
 			}
 
 			// This checks whether there are no pieces on the way to the new
 			// position.
 			else {
-				return false;
+				return true;
 			}
-
+			
 		}
 
 		// This "else if" is for The White Bishop.
@@ -327,7 +341,7 @@ public class Week2Exercise5_1 {
 			// This checks whether there are no pieces on the way to the new
 			// position.
 			else {
-				return false;
+				return true;
 			}
 
 		}
