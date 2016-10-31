@@ -24,7 +24,7 @@ public class DNAStrandTester {
 		DNAStrand dna = new DNAStrand(dnaInput);
 		summarise(dna);
 		
-		System.out.println("Sequence 'AT' is contained in dna: " + dna.containsSequence("AT"));
+		System.out.println("Sequence 'CG' is contained in dna: " + dna.containsSequence("CG"));
 		
 	}
 	

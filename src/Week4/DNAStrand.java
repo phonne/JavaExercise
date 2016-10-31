@@ -3,13 +3,12 @@ package Week4;
 import java.util.*;
 import java.util.regex.Pattern;
 
-public class DNAStrand{
-		String dna;
-	
+public class DNAStrand {
+	String dna = null;
 
-public DNAStrand(String dna){
-	this.dna=dna;
-}
+	public DNAStrand(String dna) {
+		this.dna = dna;
+	}
 
 	public boolean isVaild() {
 		return Pattern.matches("[ATCG]+", dna);
@@ -22,16 +21,16 @@ public DNAStrand(String dna){
 			switch (a) {
 			case 'A':
 				sb.append("T");
-				break;
+				continue;
 			case 'T':
 				sb.append("A");
-				break;
+				continue;
 			case 'C':
 				sb.append("G");
-				break;
+				continue;
 			case 'G':
 				sb.append("C");
-				break;
+				continue;
 			}
 
 		}
@@ -43,13 +42,10 @@ public DNAStrand(String dna){
 		return sb.reverse().toString();
 	}
 
-	/**
-	 * public String palindromeWC(): Returns the Watson Crick Palindrome, which
-	 * is the reversed sequence of the complement.
-	 */
+	
 
 	public boolean containsSequence(String seq) {
-		return Pattern.matches("(.*)(" + seq + ")(.*)", dna);
+		return Pattern.matches("(.*)" + seq + "(.*)", dna);
 	}
 	/*
 	 * public boolean containsSequence(String seq): Returns true if the DNA

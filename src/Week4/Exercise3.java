@@ -48,7 +48,7 @@ public class Exercise3 {
 		int curYear = now.get(Calendar.YEAR);
 		boolean valid = false;
 
-		if (curYear <= this.expiryYear && curMonth <= this.expiryMonth) {
+		if (curYear <= this.expiryYear && curMonth < this.expiryMonth) {
 			valid = true;
 		}
 		return valid;
