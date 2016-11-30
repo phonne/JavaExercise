@@ -18,7 +18,7 @@ public class Exercise3 {
 
 		// prints out values in aList
 		System.out.println("Random ArrayList: " + aList);
-
+// SOME
 		// sums all even numbers in aList
 		for (int i = 0; i < aList.size(); i++) {
 			if ((aList.get(i) % 2) == 0) {
